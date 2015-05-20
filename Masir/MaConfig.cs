@@ -15,6 +15,10 @@ namespace Masir
         #region 基本属性
 
         internal string m_name;
+
+        /// <summary>
+        /// 配置文件名称
+        /// </summary>
         public string Name
         {
             get { return m_name; }
@@ -23,6 +27,9 @@ namespace Masir
 
         DateTime m_loadTime;
 
+        /// <summary>
+        /// 加载时间
+        /// </summary>
         public DateTime LoadTime
         {
             get { return m_loadTime; }
@@ -30,15 +37,39 @@ namespace Masir
 
         XmlNode m_configNode;
 
+        /// <summary>
+        /// 配置结点
+        /// </summary>
         public XmlNode ConfigNode
         {
             get { return m_configNode; }
         }
 
         #endregion
+        
+        #region 构造函数
 
+        /// <summary>
+        /// 初始化请求地址变量构造
+        /// </summary>
+        public MaConfig()
+        {
+            m_variables = new Dictionary<string, string>();
+        }
 
-        protected Dictionary<string, string> m_variables;
+        /// <summary>
+        /// 根据请求xml获取请求地址变量构造函数
+        /// </summary>
+        /// <param name="node"></param>
+        public MaConfig(XmlElement node)
+        {
+            Load(node);
+            m_variables = new Dictionary<string, string>();
+        }
+
+        #endregion
+        
+        private Dictionary<string, string> m_variables;
         /// <summary>
         /// 当前配置结点键值对信息
         /// </summary>
@@ -48,22 +79,10 @@ namespace Masir
             set { m_variables = value; }
         }
 
-
-        #region 构造函数
-
-        public MaConfig()
-        {
-            m_variables = new Dictionary<string, string>();
-        }
-
-        public MaConfig(XmlElement node)
-        {
-            Load(node);
-            m_variables = new Dictionary<string, string>();
-        }
-
-        #endregion
-
+        /// <summary>
+        /// 提取请求地址变量
+        /// </summary>
+        /// <param name="node">匹配的xml</param>
         public virtual void Load(XmlElement node)
         {
             m_loadTime = DateTime.Now;

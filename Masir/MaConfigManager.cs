@@ -35,7 +35,7 @@ namespace Masir
                 {
                     if (item is XmlElement)
                     {
-                        ConfigAddCache((XmlElement)item);
+                        ConfigAndCache((XmlElement)item);
                     }
                 }
             }
@@ -47,7 +47,7 @@ namespace Masir
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        static IMaConfig ConfigAddCache(XmlElement node)
+        static IMaConfig ConfigAndCache(XmlElement node)
         {
             List<string> _filePaths = new List<string>();
             _filePaths.Add(m_defaultConfigFile);
@@ -163,6 +163,11 @@ namespace Masir
 
         #region 从配置文件加载配置信息
 
+        /// <summary>
+        /// 根据配置键 获得配置信息
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static IMaConfig GetConfigInfo(string key)
         {
             if (m_configCache.Contains(key))
@@ -175,7 +180,19 @@ namespace Masir
 
                 if (System.IO.File.Exists(m_defaultConfigFile))
                 {
-
+                    //读取XML信息
+                    XmlDocument _reader = new XmlDocument();
+                    _reader.Load(m_defaultConfigFile);
+                    foreach (XmlNode item in _reader.DocumentElement.ChildNodes)
+                    {
+                        if (item is XmlElement)
+                        {
+                            if ((key == item.Name))
+                            {
+                                return ConfigAndCache((XmlElement)item);
+                            }
+                        }
+                    }
                 }
 
                 #endregion
@@ -183,7 +200,6 @@ namespace Masir
             return null;
         }
         #endregion
-
 
         #region 提取类型
 

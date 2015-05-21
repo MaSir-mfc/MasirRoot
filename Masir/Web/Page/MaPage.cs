@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 using System.Xml;
 
 namespace Masir.Web.Page
@@ -107,7 +108,7 @@ namespace Masir.Web.Page
         #region 1、加载配置信息
 
         /// <summary>
-        /// 加载配置文件
+        /// 加载具体页面的配置信息
         /// </summary>
         /// <param name="node"></param>
         public override void Load(XmlElement node)
@@ -207,6 +208,68 @@ namespace Masir.Web.Page
         /// </summary>
         protected MaPage m_defaultRequestConfig;
 
+        /// <summary>
+        /// 设置默认页面处理配置
+        /// </summary>
+        /// <param name="requestConfig"></param>
+        public virtual void SetDefault(MaPage requestConfig)
+        {
+            m_defaultRequestConfig = requestConfig;
+            m_saveWay = (m_saveWay == MaPageSaveWay.Null) ? requestConfig.SaveWay : m_saveWay;
+            m_updateTime = (m_updateTime == 0) ? requestConfig.UpdateTime : m_updateTime;
+
+            m_location = string.IsNullOrEmpty(m_location) ? requestConfig.m_location : m_location;
+            m_header = string.IsNullOrEmpty(m_header) ? requestConfig.m_header : m_header;
+            m_param = string.IsNullOrEmpty(m_param) ? requestConfig.m_param : m_param;
+            m_custom = string.IsNullOrEmpty(m_custom) ? requestConfig.m_custom : m_custom;
+        }
+
+        #endregion
+
+        #region 3、是否适应当前请求
+
+        /// <summary>
+        /// 是否当前页面
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public virtual bool IsThis(HttpContext context)
+        {
+            if (m_mappedRegex.Match(MaUrl.Current.AbsolutePath).Success)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region 4、获取页面处理方法
+
+        /// <summary>
+        /// 获取页面处理方法
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public virtual IHttpHandler GetHandler(HttpContext context)
+        {
+            if (m_handlerType==null)
+            {
+                if (m_defaultRequestConfig!=null)
+                {
+                    return m_defaultRequestConfig.GetHandler(context);
+                }
+                else
+                {
+                    throw new Exception("没有配置页面处理程序：请检查配置结点[DefaultPage][MaPage]是否配置了结点[Handler]");
+                }
+            }
+            else
+            {
+                IHttpHandler _obj = Activator.CreateInstance(m_handlerType) as IHttpHandler;
+                return _obj;
+            }
+        }
 
         #endregion
 
@@ -271,6 +334,35 @@ namespace Masir.Web.Page
         #endregion
 
         #endregion
+
+        #region 6、获取页面变量
+
+        /// <summary>
+        /// 获取页面变量
+        /// </summary>
+        /// <returns></returns>
+        public virtual Dictionary<string, string> GetPageVariable()
+        {
+            Dictionary<string, string> _info = new Dictionary<string, string>();
+            if (m_mappedRegexStr!=null)
+            {
+                foreach (KeyValuePair<string,string> item in m_variables)
+                {
+                    if (item.Value.Contains("$"))
+                    {
+                        string _value = System.Text.RegularExpressions.Regex.Replace(MaUrl.Current.AbsolutePath, m_mappedRegexStr, item.Value, RegexOptions.IgnoreCase);
+                        _info.Add(item.Key, _value);
+                    }
+                    else
+                    {
+                        _info.Add(item.Key, item.Value);
+                    }
+                }
+            }
+            return _info;
+        }
+        #endregion
+
 
         #region 7、解析处理者集合
 

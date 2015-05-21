@@ -69,7 +69,10 @@ namespace Masir
 
         #endregion
         
-        private Dictionary<string, string> m_variables;
+        /// <summary>
+        /// 页面标签集合
+        /// </summary>
+        protected Dictionary<string, string> m_variables;
         /// <summary>
         /// 当前配置结点键值对信息
         /// </summary>

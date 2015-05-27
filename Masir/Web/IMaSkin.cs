@@ -41,8 +41,8 @@ namespace Masir.Web
         bool IsThis(HttpContext context);
 
         /// <summary>
-        /// 添加额外属性
+        /// 模板集合
         /// </summary>
-        Dictionary<string, object> TemplateList { get; set; }
+        Dictionary<string, string> TemplateList { get; set; }
     }
 }

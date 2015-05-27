@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
@@ -54,9 +55,11 @@
     <Compile Include="Web\IMaSite.cs" />
     <Compile Include="Web\IMaSkin.cs" />
     <Compile Include="Web\IMaWeb.cs" />
+    <Compile Include="Web\MaWebUtility.cs" />
     <Compile Include="Web\Page\MaPage.cs" />
     <Compile Include="Web\Page\MaPagePublic.cs" />
     <Compile Include="Web\Page\MaSite.cs" />
+    <Compile Include="Web\Page\MaSkin.cs" />
     <Compile Include="Web\Page\MaUrl.cs" />
     <Compile Include="Web\Page\MaWeb.cs" />
   </ItemGroup>

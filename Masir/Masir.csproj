@@ -47,6 +47,8 @@
     <Compile Include="MaConfig.cs" />
     <Compile Include="MaConfigManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Ajax\AjaxFactory.cs" />
+    <Compile Include="Web\Ajax\AjaxHandler.cs" />
     <Compile Include="Web\Htmx\HtmxFactory.cs" />
     <Compile Include="Web\Htmx\HtmxHandler.cs" />
     <Compile Include="Web\Htmx\HtmxHandlerBase.cs" />
@@ -62,6 +64,10 @@
     <Compile Include="Web\Page\MaSkin.cs" />
     <Compile Include="Web\Page\MaUrl.cs" />
     <Compile Include="Web\Page\MaWeb.cs" />
+    <Compile Include="Web\Parse\MaParserBase.cs" />
+    <Compile Include="Web\Parse\MaTag.cs" />
+    <Compile Include="Web\Parse\TemplateParser.cs" />
+    <Compile Include="Web\Parse\VariableParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Components\" />

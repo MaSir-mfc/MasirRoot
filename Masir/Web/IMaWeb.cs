@@ -19,10 +19,5 @@ namespace Masir.Web
         /// <returns></returns>
         IMaSite GetSite(HttpContext context);
 
-        /// <summary>
-        /// 获取host列表（外加 非必要）
-        /// </summary>
-        /// <returns></returns>
-        Dictionary<string, string> GetHost();
     }
 }

@@ -29,7 +29,6 @@ namespace Masir.Web.Page
         public MaWeb()
         {
             m_maSiteConfigList = new List<IMaSite>();
-            m_maSiteHostList = new Dictionary<string, string>();
         }
 
         /// <summary>
@@ -73,7 +72,6 @@ namespace Masir.Web.Page
                     }
 
                     #endregion
-                    m_maSiteHostList[item.Attributes["name"].Value] = "http://" + _hostNodeList[0].Attributes["value"].Value;
                     m_maSiteConfigList.Add(_site);
                 }
                 else
@@ -104,18 +102,6 @@ namespace Masir.Web.Page
             return m_maSiteConfigList[0];
         }
 
-        #endregion
-
-        #region 获取host列表
-
-        /// <summary>
-        /// 获取host列表
-        /// </summary>
-        /// <returns></returns>
-        public virtual Dictionary<string, string> GetHost()
-        {
-            return m_maSiteHostList;
-        }
         #endregion
     }
 }

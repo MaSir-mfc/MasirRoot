@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\TextHelper.cs" />
+    <Compile Include="Data\DataBaseConfig.cs" />
+    <Compile Include="Data\DataBaseInfo.cs" />
     <Compile Include="IMaConfig.cs" />
     <Compile Include="MaConfig.cs" />
     <Compile Include="MaConfigManager.cs" />
@@ -69,9 +72,7 @@
     <Compile Include="Web\Parse\TemplateParser.cs" />
     <Compile Include="Web\Parse\VariableParser.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Components\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

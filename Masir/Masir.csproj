@@ -46,9 +46,11 @@
     <Compile Include="Components\TextHelper.cs" />
     <Compile Include="Data\DataBaseConfig.cs" />
     <Compile Include="Data\DataBaseInfo.cs" />
+    <Compile Include="Data\SqlDataHelper.cs" />
     <Compile Include="IMaConfig.cs" />
     <Compile Include="MaConfig.cs" />
     <Compile Include="MaConfigManager.cs" />
+    <Compile Include="MaDataHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\Ajax\AjaxFactory.cs" />
     <Compile Include="Web\Ajax\AjaxHandler.cs" />

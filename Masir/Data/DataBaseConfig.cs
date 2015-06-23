@@ -8,7 +8,7 @@ using System.Xml;
 namespace Masir.Data
 {
     /// <summary>
-    /// 数据库处理基类
+    /// 数据库配置文件处理
     /// </summary>
     public class DataBaseConfig : MaConfig
     {

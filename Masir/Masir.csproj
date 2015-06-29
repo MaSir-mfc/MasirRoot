@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\LevenshteinDistance.cs" />
+    <Compile Include="Components\NetHelper.cs" />
     <Compile Include="Components\TextHelper.cs" />
     <Compile Include="Data\DataBaseConfig.cs" />
     <Compile Include="Data\DataBaseInfo.cs" />
@@ -57,6 +59,7 @@
     <Compile Include="Web\Htmx\HtmxFactory.cs" />
     <Compile Include="Web\Htmx\HtmxHandler.cs" />
     <Compile Include="Web\Htmx\HtmxHandlerBase.cs" />
+    <Compile Include="Web\Htmx\HtmxModule.cs" />
     <Compile Include="Web\Htmx\HtmxPage.cs" />
     <Compile Include="Web\IMaParser.cs" />
     <Compile Include="Web\IMaSite.cs" />
@@ -73,6 +76,7 @@
     <Compile Include="Web\Parse\MaTag.cs" />
     <Compile Include="Web\Parse\TemplateParser.cs" />
     <Compile Include="Web\Parse\VariableParser.cs" />
+    <Compile Include="Web\Security\MaSecurityConfig.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

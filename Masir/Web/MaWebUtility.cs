@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Masir.Components;
+using Masir.Web.Security;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,7 +59,7 @@ namespace Masir.Web
         }
 
         /// <summary>
-        /// 返回 URL 字符串的编码结果
+        /// 返回 URL 字符串的解码结果
         /// </summary>
         /// <param name="str">字符串</param>
         /// <returns>解码结果</returns>
@@ -106,6 +108,105 @@ namespace Masir.Web
             return HttpContext.Current.Server.MapPath(path);
         }
 
+        #endregion
+
+        #region 获得当前请求IP地址
+
+        /// <summary>
+        /// 获得请求IP地址
+        /// </summary>
+        /// <returns></returns>
+        public static string GetIP()
+        {
+            return GetIP(HttpContext.Current);
+        }
+
+        /// <summary>
+        /// 获得请求IP地址
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static string GetIP(HttpContext context)
+        {
+            string result = string.Empty;
+            try
+            {
+                result = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+                if (!string.IsNullOrEmpty(result))
+                {
+                    //可能有代理
+                    if (result.IndexOf(".") == -1)
+                    {//没有“.”肯定是非IPV4格式
+                        result = null;
+                    }
+                    else
+                    {
+                        if (result.IndexOf(",") != -1)
+                        {
+                            //有“,”，估计多个代理。取第一个不是内网的IP.
+                            result = result.Replace(" ", "").Replace("'", "");
+                            string[] temparyip = result.Split(",;".ToCharArray());
+                            for (int i = 0; i < temparyip.Length; i++)
+                            {
+                                if (TextHelper.IsIPAddress(temparyip[i])
+                                    && temparyip[i].Substring(0, 3) != "10."
+                                    && temparyip[i].Substring(0, 7) != "192.168"
+                                    && temparyip[i].Substring(0, 7) != "172.16.")
+                                {
+                                    return temparyip[i];    //找到不是内网的地址 
+                                }
+                            }
+                        }
+                        else if (TextHelper.IsIPAddress(result))
+                        {//代理即是IP格式 
+                            return result;
+                        }
+                        else
+                        {
+                            result = null;    //代理中的内容 非IP，取IP 
+                        }
+                    }
+                }
+            }
+            catch
+            {
+            }
+            if (string.IsNullOrEmpty(result))
+            {//获得访问IP地址
+                result = "127.0.0.1";
+            }
+            return result;
+        }
+
+        #endregion
+
+        #region IP验证
+        /// <summary>
+        /// 验证IP是否是安全IP
+        /// </summary>
+        /// <param name="ip">IP</param>
+        /// <returns></returns>
+        public static bool IPAuthentication(string ip)
+        {
+            foreach (string[] item in MaSecurityConfig.Instance.SecurityIP)
+            {
+                if (NetHelper.InSameSubNet(item[1], item[0], ip))
+                {//找到允许IP
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 验证当前IP是否是安全IP
+        /// </summary>
+        /// <returns></returns>
+        public static bool IPAuthentication()
+        {
+            string _ip = GetIP();
+            return IPAuthentication(_ip);
+        }
         #endregion
     }
 }

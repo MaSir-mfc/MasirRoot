@@ -76,7 +76,12 @@
     <Compile Include="Web\Parse\MaTag.cs" />
     <Compile Include="Web\Parse\TemplateParser.cs" />
     <Compile Include="Web\Parse\VariableParser.cs" />
+    <Compile Include="Web\Security\MaIdentity.cs" />
+    <Compile Include="Web\Security\MaPrincipal.cs" />
     <Compile Include="Web\Security\MaSecurityConfig.cs" />
+    <Compile Include="Web\Security\MaSecurityHelper.cs" />
+    <Compile Include="Web\Security\MaSecurityModule.cs" />
+    <Compile Include="Web\Security\MaUserTicket.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -45,6 +45,14 @@ namespace Masir.Web.Security
 
             if ((context.User == null) && (MaSecurityConfig.Instance.LoginUrl != _url.AbsolutePath))
             {
+                //开放域名跳过
+                foreach (var item in MaSecurityConfig.Instance.OpenDoamin)
+                {
+                    if (_url.Domain.Domain == item)
+                    {
+                        goto URLCHECK;
+                    }
+                }
                 //开放跳过
                 foreach (var item in MaSecurityConfig.Instance.OpenPath)
                 {

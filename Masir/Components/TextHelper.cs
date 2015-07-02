@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Masir.Components
 {
@@ -222,6 +223,27 @@ namespace Masir.Components
         }
 
         /// <summary>
+        /// HMACSHA1 签名
+        /// </summary>
+        /// <param name="key">签名密钥</param>
+        /// <param name="requestMethod">请求模式（Get\Post）</param>
+        /// <param name="requestUrl">请求URL</param>
+        /// <param name="parameters">请求参数</param>
+        /// <returns></returns>
+        public static string HMACSHA1Signature(string key, string requestMethod, string requestUrl, Parameters parameters)
+        {
+
+            StringBuilder data = new StringBuilder(100);
+            data.AppendFormat("{0}&{1}&", requestMethod.ToUpper(), Uri.EscapeDataString(requestUrl));
+            //处理参数
+            if (parameters != null)
+            {
+                data.Append(parameters.BuildQueryString(true));
+            }
+            return HMACSHA1(key, data.ToString());
+        }
+
+        /// <summary>
         /// 获取字符串SHA1加密串，兼容 php sha1()
         /// </summary>
         /// <param name="str"></param>
@@ -240,6 +262,44 @@ namespace Masir.Components
         }
 
         #endregion 
+
+        #region URL加密传参
+
+        /// <summary>
+        /// URL解密
+        /// </summary>
+        /// <typeparam name="T">返回参数类型</typeparam>
+        /// <param name="req">参数集合</param>
+        /// <param name="paramName">参数名</param>
+        /// <returns></returns>
+        public static T GetEncrypt<T>(this HttpRequest req, string paramName)
+        {
+            string _param = req.Params[paramName];
+
+            try
+            {
+                string _decode = AESEncrypt(_param, "w3@4!e?0", "w3$4!e?0");
+
+                return (T)Convert.ChangeType(_decode, typeof(T));
+            }
+            catch
+            {
+                return (T)Convert.ChangeType(_param, typeof(T)); ;
+            }
+        }
+
+        /// <summary>
+        /// URL加密
+        /// </summary>
+        /// <param name="input">明文字符</param>
+        /// <param name="isUrlCode">是否编码</param>
+        /// <returns></returns>
+        public static string Encrypt(string input, bool isUrlCode = true)
+        {
+            return isUrlCode ? Uri.EscapeDataString(AESDecrypt(input, "w3@4!e?0", "w3$4!e?0")) : AESDecrypt(input, "w3@4!e?0", "w3$4!e?0");
+        }
+
+        #endregion
 
         #endregion
 

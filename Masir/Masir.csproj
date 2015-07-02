@@ -43,12 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\DataCache.cs" />
+    <Compile Include="Components\FormsVerify.cs" />
+    <Compile Include="Components\HttpTools.cs" />
     <Compile Include="Components\LevenshteinDistance.cs" />
     <Compile Include="Components\NetHelper.cs" />
+    <Compile Include="Components\ParseTools.cs" />
+    <Compile Include="Components\SiteForms.cs" />
     <Compile Include="Components\TextHelper.cs" />
     <Compile Include="Data\DataBaseConfig.cs" />
     <Compile Include="Data\DataBaseInfo.cs" />
+    <Compile Include="Data\DataToXml.cs" />
     <Compile Include="Data\SqlDataHelper.cs" />
+    <Compile Include="Data\XmlToData.cs" />
     <Compile Include="IMaConfig.cs" />
     <Compile Include="MaConfig.cs" />
     <Compile Include="MaConfigManager.cs" />
@@ -82,6 +89,15 @@
     <Compile Include="Web\Security\MaSecurityHelper.cs" />
     <Compile Include="Web\Security\MaSecurityModule.cs" />
     <Compile Include="Web\Security\MaUserTicket.cs" />
+    <Compile Include="_open\LitJson\IJsonWrapper.cs" />
+    <Compile Include="_open\LitJson\JsonData.cs" />
+    <Compile Include="_open\LitJson\JsonException.cs" />
+    <Compile Include="_open\LitJson\JsonMapper.cs" />
+    <Compile Include="_open\LitJson\JsonMockWrapper.cs" />
+    <Compile Include="_open\LitJson\JsonReader.cs" />
+    <Compile Include="_open\LitJson\JsonWriter.cs" />
+    <Compile Include="_open\LitJson\Lexer.cs" />
+    <Compile Include="_open\LitJson\ParserToken.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

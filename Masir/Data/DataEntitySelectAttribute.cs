@@ -59,7 +59,7 @@ namespace Masir.Data
         /// </summary>
         /// <param name="name">数据库名称</param>
         /// <param name="selectObject">查询对象</param>
-        /// <param name="selectParams">查询条件</param>
+        /// <param name="selectWhere">查询条件</param>
         public DataEntitySelectAttribute(string name, string selectObject, params string[] selectWhere)
         {
             m_selectDatabase = DataBaseConfig.Instance.GetDataBaseInfoByCache(name);

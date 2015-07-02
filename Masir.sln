@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masir", "Masir\Masir.csproj", "{65EEF796-23C8-449E-A2EA-7EF905E81D0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasirOpen", "MasirOpen\MasirOpen.csproj", "{68E672CC-2E3C-473C-88BE-90CF4A44473A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{65EEF796-23C8-449E-A2EA-7EF905E81D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65EEF796-23C8-449E-A2EA-7EF905E81D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65EEF796-23C8-449E-A2EA-7EF905E81D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E672CC-2E3C-473C-88BE-90CF4A44473A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E672CC-2E3C-473C-88BE-90CF4A44473A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E672CC-2E3C-473C-88BE-90CF4A44473A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E672CC-2E3C-473C-88BE-90CF4A44473A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

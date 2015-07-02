@@ -264,7 +264,7 @@ namespace Masir.Components
                 byte[] ba = System.Text.Encoding.Unicode.GetBytes(s);
 
                 for (int i = 0; i < ba.Length; i += 2)
-                {    /**///// BE SURE 2's 
+                {    // BE SURE 2's 
                     sb.Append("%u");
 
                     sb.Append(ba[i + 1].ToString("X2"));

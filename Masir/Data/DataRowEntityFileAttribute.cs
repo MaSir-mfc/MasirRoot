@@ -28,7 +28,7 @@ namespace Masir.Data
         /// </summary>
         /// <param name="name">字段名称</param>
         /// <param name="title">字段标注</param>
-        /// <param name="fieldType">字段类型</param>
+        /// <param name="type">字段类型</param>
         public DataRowEntityFileAttribute(string name, string title, Type type)
         {
             this.m_fieldName = name;

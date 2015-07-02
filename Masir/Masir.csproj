@@ -37,6 +37,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,16 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\CommonParser.cs" />
     <Compile Include="Components\DataCache.cs" />
     <Compile Include="Components\FormsVerify.cs" />
     <Compile Include="Components\HttpTools.cs" />
+    <Compile Include="Components\JSConvert.cs" />
     <Compile Include="Components\LevenshteinDistance.cs" />
     <Compile Include="Components\NetHelper.cs" />
+    <Compile Include="Components\PagerNavigation.cs" />
     <Compile Include="Components\ParseTools.cs" />
     <Compile Include="Components\SiteForms.cs" />
+    <Compile Include="Components\TagDataHelper.cs" />
     <Compile Include="Components\TextHelper.cs" />
     <Compile Include="Data\DataBaseConfig.cs" />
     <Compile Include="Data\DataBaseInfo.cs" />
+    <Compile Include="Data\DataEntityHelper.cs" />
+    <Compile Include="Data\DataEntitySelectAttribute.cs" />
+    <Compile Include="Data\DataRowEntityBase.cs" />
+    <Compile Include="Data\DataRowEntityFileAttribute.cs" />
     <Compile Include="Data\DataToXml.cs" />
     <Compile Include="Data\SqlDataHelper.cs" />
     <Compile Include="Data\XmlToData.cs" />

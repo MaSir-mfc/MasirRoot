@@ -190,6 +190,12 @@ namespace Masir.Web.Page
                 string _skinPath = MaWebUtility.GetMapPath(TemplatePath + _templatePath, true);
                 //获得站点路径
                 string _sitePath = MaWebUtility.GetMapPath(_templatePath, true);
+
+                _templatePath = _sitePath;
+                if (System.IO.File.Exists(_skinPath))
+                {//优先皮肤路径
+                    _templatePath = _skinPath;
+                }
             }
             return _templatePath;
         }

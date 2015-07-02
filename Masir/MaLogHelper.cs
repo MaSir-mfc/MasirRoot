@@ -11,12 +11,12 @@ namespace Masir
     /// <summary>
     /// 日志处理帮助类
     /// </summary>
-    public static class TxLogHelper
+    public static class MaLogHelper
     {
         /// <summary>
         /// 记录日志对象
         /// 对于独立类，
-        /// 请使用引用Txooo命名空间后，使用this.TxLogDebug()记录日志信息
+        /// 请使用引用Masir命名空间后，使用this.MaLogDebug()记录日志信息
         /// </summary>
         public static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -30,11 +30,11 @@ namespace Masir
 
         static string m_defaultConfigFile;
 
-        static TxLogHelper()
+        static MaLogHelper()
         {
             m_initTime = DateTime.Now;
 
-            m_defaultConfigFile = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Tx.config";
+            m_defaultConfigFile = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "Ma.config";
 
             //监控配置文件信息
             log4net.Config.XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(m_defaultConfigFile));
@@ -205,52 +205,52 @@ namespace Masir
 
         #region 记录日志  <!--级别，OFF、Fatal、ERROR、WARN、INFO、DEBUG、ALL-->
 
-        public static void TxLogFatal(this object obj, string messages)
+        public static void MaLogFatal(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Fatal(messages);
         }
 
-        public static void TxLogFatal(this object obj, string messages, Exception ex)
+        public static void MaLogFatal(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Fatal(messages, ex);
         }
 
-        public static void TxLogError(this object obj, string messages)
+        public static void MaLogError(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Error(messages);
         }
 
-        public static void TxLogError(this object obj, string messages, Exception ex)
+        public static void MaLogError(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Error(messages, ex);
         }
 
-        public static void TxLogWarn(this object obj, string messages)
+        public static void MaLogWarn(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Warn(messages);
         }
 
-        public static void TxLogWarn(this object obj, string messages, Exception ex)
+        public static void MaLogWarn(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Warn(messages, ex);
         }
 
-        public static void TxLogInfo(this object obj, string messages)
+        public static void MaLogInfo(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Info(messages);
         }
 
-        public static void TxLogInfo(this object obj, string messages, Exception ex)
+        public static void MaLogInfo(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Info(messages, ex);
         }
 
-        public static void TxLogDebug(this object obj, string messages)
+        public static void MaLogDebug(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Debug(messages);
         }
 
-        public static void TxLogDebug(this object obj, string messages, Exception ex)
+        public static void MaLogDebug(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Debug(messages, ex);
         }

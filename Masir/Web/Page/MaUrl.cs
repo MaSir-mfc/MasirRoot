@@ -227,6 +227,11 @@ namespace Masir.Web.Page
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return m_context.Request.Url.ToString();
+        }
     }
 
     #region 域名信息

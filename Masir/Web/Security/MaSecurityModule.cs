@@ -25,8 +25,7 @@ namespace Masir.Web.Security
         /// <param name="application"></param>
         public void Init(HttpApplication application)
         {
-            //application.AuthenticateRequest+=
-
+            application.AuthenticateRequest += application_AuthenticateRequest;
         }
 
 

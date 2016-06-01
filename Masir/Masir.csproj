@@ -72,10 +72,12 @@
     <Compile Include="Web\Ajax\AjaxFactory.cs" />
     <Compile Include="Web\Ajax\AjaxHandler.cs" />
     <Compile Include="Web\Htmx\HtmxFactory.cs" />
+    <Compile Include="Web\Htmx\HtmxFilter.cs" />
     <Compile Include="Web\Htmx\HtmxHandler.cs" />
     <Compile Include="Web\Htmx\HtmxHandlerBase.cs" />
     <Compile Include="Web\Htmx\HtmxModule.cs" />
     <Compile Include="Web\Htmx\HtmxPage.cs" />
+    <Compile Include="Web\Htmx\Redirect301Page.cs" />
     <Compile Include="Web\IMaParser.cs" />
     <Compile Include="Web\IMaSite.cs" />
     <Compile Include="Web\IMaSkin.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Web\Security\MaSecurityConfig.cs" />
     <Compile Include="Web\Security\MaSecurityHelper.cs" />
     <Compile Include="Web\Security\MaSecurityModule.cs" />
+    <Compile Include="Web\Security\MaUser.cs" />
     <Compile Include="Web\Security\MaUserTicket.cs" />
   </ItemGroup>
   <ItemGroup>

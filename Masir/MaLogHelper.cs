@@ -93,7 +93,7 @@ namespace Masir
 
         static log4net.Appender.RollingFileAppender GetFileAppender(string name, log4net.Core.Level max, log4net.Core.Level min)
         {
-            ///设置过滤器
+            //设置过滤器
             log4net.Filter.LevelRangeFilter _levfilter = new log4net.Filter.LevelRangeFilter();
             _levfilter.LevelMax = max;
             _levfilter.LevelMin = min;
@@ -204,52 +204,97 @@ namespace Masir
         #endregion
 
         #region 记录日志  <!--级别，OFF、Fatal、ERROR、WARN、INFO、DEBUG、ALL-->
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
         public static void MaLogFatal(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Fatal(messages);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
+        /// <param name="ex"></param>
         public static void MaLogFatal(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Fatal(messages, ex);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
         public static void MaLogError(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Error(messages);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
+        /// <param name="ex"></param>
         public static void MaLogError(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Error(messages, ex);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
         public static void MaLogWarn(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Warn(messages);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
+        /// <param name="ex"></param>
         public static void MaLogWarn(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Warn(messages, ex);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
         public static void MaLogInfo(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Info(messages);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
+        /// <param name="ex"></param>
         public static void MaLogInfo(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Info(messages, ex);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
         public static void MaLogDebug(this object obj, string messages)
         {
             GetLogger(obj.GetType()).Debug(messages);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="messages"></param>
+        /// <param name="ex"></param>
         public static void MaLogDebug(this object obj, string messages, Exception ex)
         {
             GetLogger(obj.GetType()).Debug(messages, ex);

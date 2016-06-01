@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Masir.Web.Page;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -142,8 +143,21 @@ namespace Masir.Web.Security
         {
             get
             {
+                if (CookieUseCurrentRootDomain || string.IsNullOrEmpty(m_cookieDomain))
+                {
+                    return MaUrl.Current.Domain.MainDomain;
+                }
                 return m_cookieDomain;
             }
+        }
+        private bool m_cookieUseCurrentRootDomain;
+        /// <summary>
+        /// 是否使用当前根域
+        /// </summary>
+        public bool CookieUseCurrentRootDomain
+        {
+            get { return m_cookieUseCurrentRootDomain; }
+            set { m_cookieUseCurrentRootDomain = value; }
         }
 
         private bool m_validateIP;
@@ -286,6 +300,8 @@ namespace Masir.Web.Security
 
             m_stopInfo = "未授权请求";
             m_stopType = StopBrowseType.Redirect;
+
+            m_cookieUseCurrentRootDomain = true;
         }
         #endregion
 
@@ -332,6 +348,10 @@ namespace Masir.Web.Security
                     if (item["Domain"] != null)
                     {
                         m_cookieDomain = item["Domain"].InnerText;
+                    }
+                    if (item["UseCurrentRootDomain"] != null)
+                    {
+                        bool.TryParse(item["UseCurrentRootDomain"].InnerText, out m_cookieUseCurrentRootDomain);
                     }
                     if (item["ValidateIP"] != null)
                     {

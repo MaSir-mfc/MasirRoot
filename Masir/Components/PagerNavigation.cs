@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Masir.Components
 {
+    /// <summary>
+    /// 导航信息
+    /// </summary>
     public class PagerNavigation
     {
         private int buttonCount = 10;
@@ -254,7 +257,11 @@ namespace Masir.Components
         }
 
         #region 客户端escape中文字符加密
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public string escape(string s)
         {
             if (IsChinese(s))
@@ -278,7 +285,11 @@ namespace Masir.Components
                 return s;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="CString"></param>
+        /// <returns></returns>
         public bool IsChinese(string CString)
         {
             bool BoolValue = false;

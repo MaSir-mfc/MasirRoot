@@ -559,7 +559,6 @@ namespace Masir.Data
         /// <param name="start">起始记录数</param>
         /// <param name="limit">终止记录数</param>
         /// <param name="count">总记录数</param>
-        /// <param name="">数据表格</param>
         public static DataTable GetTable(string database, string table, Hashtable whereParams, string order, out int count, string where = "", string field = "*", int start = 0, int limit = 999)
         {
             using (MaDataHelper dataTool = MaDataHelper.GetDataHelper(database))

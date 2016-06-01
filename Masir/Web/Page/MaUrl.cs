@@ -227,7 +227,10 @@ namespace Masir.Web.Page
         }
 
         #endregion
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return m_context.Request.Url.ToString();

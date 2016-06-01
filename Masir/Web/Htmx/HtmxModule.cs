@@ -73,6 +73,9 @@ namespace Masir.Web.Htmx
                         switch (MaUrl.Current.RequestView)
                         {
                             case MaRequestView.Put:
+                                {
+                                    //HtmxFilter中实现
+                                }
                                 break;
                             case MaRequestView.Edit:
                                 break;
@@ -83,6 +86,9 @@ namespace Masir.Web.Htmx
                                 DeletePage();
                                 break;
                             case MaRequestView.Save:
+                                {
+                                    //HtmxFilter中实现
+                                }
                                 break;
                             case MaRequestView.Null:
                                 NullPage();

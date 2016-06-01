@@ -10,14 +10,18 @@ using System.Web.Script.Serialization;
 
 namespace Masir.Components
 {
+    /// <summary>
+    /// datatable转json
+    /// </summary>
     public class JSConvert
     {
-        /// <summary>   
-        /// DataTable转成Json    
-        /// </summary>   
-        /// <param name="jsonName"></param>   
-        /// <param name="dt"></param>   
-        /// <returns></returns>   
+        /// <summary>
+        /// DataTable转成Json 
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="jsonName"></param>
+        /// <param name="encodeFields"></param>
+        /// <returns></returns>
         public static string DataTableToJson(DataTable dt, string jsonName, params string[] encodeFields)
         {
             StringBuilder Json = new StringBuilder();
@@ -130,6 +134,11 @@ namespace Masir.Components
         //    }
         //    return ts;
         //}  
+        /// <summary>
+        /// 标准的数据转json
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public static string Dtb2Json(DataTable dt)
         {
             JavaScriptSerializer jss = new JavaScriptSerializer();

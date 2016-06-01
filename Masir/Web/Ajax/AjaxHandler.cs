@@ -46,7 +46,7 @@ namespace Masir.Web.Ajax
             {
                 p = "," + string.Join(",", other);
             }
-            var result = string.Format("({{\"success\":\"{0}\",\"msg\":\"{1}\"{2}}})", success.ToString().ToLower(), msg, p);
+            var result = string.Format("({{\"success\":{0},\"msg\":\"{1}\"{2}}})", success.ToString().ToLower(), msg, p);
             return result;
         }
 

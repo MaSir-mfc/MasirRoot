@@ -78,6 +78,7 @@
     <Compile Include="Web\Htmx\HtmxModule.cs" />
     <Compile Include="Web\Htmx\HtmxPage.cs" />
     <Compile Include="Web\Htmx\Redirect301Page.cs" />
+    <Compile Include="Web\Htmx\RedirectPage.cs" />
     <Compile Include="Web\IMaParser.cs" />
     <Compile Include="Web\IMaSite.cs" />
     <Compile Include="Web\IMaSkin.cs" />

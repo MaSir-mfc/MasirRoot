@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Masir.Web.Parse
 {
     /// <summary>
-    /// 解析标签抽象类
+    /// 解析标签抽象类（解析父类）
     /// </summary>
     public abstract class MaParserBase : IMaParser
     {

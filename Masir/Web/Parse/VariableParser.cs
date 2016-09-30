@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Masir.Web.Parse
 {
     /// <summary>
-    /// 解析入口类
+    /// 值标签解析类（用于配置文件）
     /// </summary>
    public class VariableParser:IMaParser
    {

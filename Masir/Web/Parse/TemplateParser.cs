@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Masir.Web.Parse
 {
     /// <summary>
-    /// 默认模板替换类
+    /// 代码模板替换类（页面模板替换）
     /// </summary>
     public class TemplateParser : MaParserBase
     {

@@ -361,8 +361,7 @@ namespace Masir.Web.Page
             return _info;
         }
         #endregion
-
-
+        
         #region 7、解析处理者集合
 
         List<IMaParser> m_parseList;

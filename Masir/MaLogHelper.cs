@@ -50,7 +50,10 @@ namespace Masir
         }
 
         #region 日志文件保存路径
-
+        /// <summary>
+        /// 日志保存路径
+        /// </summary>
+        /// <returns></returns>
         static string GetLogSavePath()
         {
             if (System.Runtime.Caching.MemoryCache.Default.Get("TX_LOG_SAVE_PATH") != null)
